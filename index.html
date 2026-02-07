@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeeBrownies - Custom Brownies | Fudgy Brownies</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6281240806323" class="whatsapp-float" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat Us<br>0812-4080-6323</span>
+    </a>
+
+    <!-- Shopping Cart Floating Button -->
+    <a href="#products" class="cart-float">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count">0</span>
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="top-bar">
+            <div class="container">
+                <div class="top-bar-content">
+                    <div class="contact-info">
+                        <a href="tel:081240806323"><i class="fas fa-phone"></i> 0812-4080-6323</a>
+                        <a href="mailto:deebrownies@gmail.com"><i class="fas fa-envelope"></i> deebrownies@gmail.com</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-shopee"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <div class="logo">
+                        <h1>DeeBrownies</h1>
+                        <p class="slogan">Custom Brownies | Fudgy Brownies</p>
+                    </div>
+                    
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li class="dropdown">
+                            <a href="#about">Tentang Kami <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#sejarah">Sejarah</a></li>
+                                <li><a href="#visi">Visi</a></li>
+                                <li><a href="#misi">Misi</a></li>
+                                <li><a href="#budaya">Budaya Kerja</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#updates">Update</a></li>
+                        <li><a href="#outlets">Outlet</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li class="dropdown">
+                            <a href="#partnership">Info Kemitraan <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#agen">Agen</a></li>
+                                <li><a href="#reseller">Reseller</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#career">Karir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="home">
+        <div class="slider-container">
+            <div class="slide active" style="background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title" data-aos="fade-up">15 Tahun Menebarkan Kelezatan</h2>
+                    <p class="slide-subtitle" data-aos="fade-up" data-aos-delay="100">Custom Brownies Premium dengan Rasa Istimewa</p>
+                    <div class="slide-buttons" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#partnership" class="btn btn-primary">Info Kemitraan</a>
+                        <a href="https://wa.me/6281240806323" class="btn btn-secondary">Belanja Sekarang</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="slide" style="background: linear-gradient(135deg, #6F4E37 0%, #A0522D 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title">Pulang Bawa DeBrownies</h2>
+                    <p class="slide-subtitle">Hadirkan Kehangatan untuk Keluarga</p>
+                    <div class="slide-buttons">
+                        <a href="https://wa.me/6281240806323" class="btn btn-primary">Belanja Sekarang</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background: linear-gradient(135deg, #8B7355 0%, #CD853F 100%);">
+                <div class="slide-content">
+                    <h2 class="slide-title">Fudgy Brownies Terlezat</h2>
+                    <p class="slide-subtitle">Tekstur Lembut, Rasa Premium</p>
+                    <div class="slide-buttons">
+                        <a href="#products" class="btn btn-primary">Lihat Produk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="slider-btn prev" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="slider-btn next" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <!-- Promo Section -->
+    <section class="promo-section" id="updates">
+        <div class="container">
+            <h2 class="section-title">Special Promo Bulan Ini</h2>
+            <p class="section-subtitle">Klik Gambar Untuk Memperbesar</p>
+            
+            <div class="promo-grid">
+                <div class="promo-card" onclick="openModal('promo-1')">
+                    <div class="promo-image">
+                        <img src="images/promo-1.svg" alt="Promo Paket Hemat Keluarga" loading="lazy" decoding="async">
+                        <div class="promo-badge">HOT DEAL</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3>Paket Hemat Keluarga</h3>
+                        <p>Beli 3 Gratis 1</p>
+                    </div>
+                </div>
+
+                <div class="promo-card" onclick="openModal('promo-2')">
+                    <div class="promo-image">
+                        <img src="images/promo-2.svg" alt="Promo Custom Brownies" loading="lazy" decoding="async">
+                        <div class="promo-badge">NEW</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3>Custom Brownies</h3>
+                        <p>Desain Sesuai Keinginan</p>
+                    </div>
+                </div>
+
+                <div class="promo-card" onclick="openModal('promo-3')">
+                    <div class="promo-image">
+                        <img src="images/promo-3.svg" alt="Promo Diskon 20 Persen" loading="lazy" decoding="async">
+                        <div class="promo-badge">PROMO</div>
+                    </div>
+                    <div class="promo-content">
+                        <h3>Diskon 20%</h3>
+                        <p>Untuk Pembelian Grosir</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Section -->
+    <section class="partnership-section" id="partnership">
+        <div class="container">
+            <div class="partnership-content">
+                <div class="partnership-text">
+                    <h2>Ingin Mendapatkan Income Tambahan dari Bisnis Kuliner?</h2>
+                    <p>Dapatkan potensi income dengan menjadi Mitra DeBrownies</p>
+                    <a href="#agen" class="btn btn-primary">Selengkapnya >>></a>
+                </div>
+                <div class="partnership-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="50">0</div>
+                        <div class="stat-label">Varian Produk</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">Outlet</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="15">0</div>
+                        <div class="stat-label">Tahun Melayani</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk Kami</h2>
+            <p class="section-subtitle">Pilihan Brownies Premium dengan Berbagai Varian</p>
+
+            <div class="product-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="fudgy">Fudgy</button>
+                <button class="filter-btn" data-filter="custom">Custom</button>
+                <button class="filter-btn" data-filter="premium">Premium</button>
+            </div>
+
+            <div class="products-grid">
+                <div class="product-card" data-category="fudgy">
+                    <div class="product-image">
+                        <img src="images/product-1.svg" alt="Fudgy Brownies Original" loading="lazy" decoding="async">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Fudgy Brownies Original</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(125 reviews)</span>
+                        </div>
+                        <p class="product-price">Rp 45.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="fudgy">
+                    <div class="product-image">
+                        <img src="images/product-2.svg" alt="Fudgy Brownies Nutella" loading="lazy" decoding="async">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Fudgy Brownies Nutella</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(98 reviews)</span>
+                        </div>
+                        <p class="product-price">Rp 55.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="custom">
+                    <div class="product-image">
+                        <img src="images/product-3.svg" alt="Custom Brownies" loading="lazy" decoding="async">
+                        <div class="product-badge">CUSTOM</div>
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Custom Brownies</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156 reviews)</span>
+                        </div>
+                        <p class="product-price">Mulai Rp 60.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="premium">
+                    <div class="product-image">
+                        <img src="images/product-4.svg" alt="Premium Brownies Box" loading="lazy" decoding="async">
+                        <div class="product-badge">PREMIUM</div>
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Brownies Box</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(89 reviews)</span>
+                        </div>
+                        <p class="product-price">Rp 85.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="fudgy">
+                    <div class="product-image">
+                        <img src="images/product-5.svg" alt="Fudgy Brownies Ovomaltine" loading="lazy" decoding="async">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Fudgy Brownies Ovomaltine</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(72 reviews)</span>
+                        </div>
+                        <p class="product-price">Rp 50.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="premium">
+                    <div class="product-image">
+                        <img src="images/product-6.svg" alt="Premium Cheese Brownies" loading="lazy" decoding="async">
+                        <div class="product-badge">BEST SELLER</div>
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Cheese Brownies</h3>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(203 reviews)</span>
+                        </div>
+                        <p class="product-price">Rp 65.000</p>
+                        <button class="btn-add-cart">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Testimoni DeeBrownies Lovers</h2>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Alhamdulillah paket sudah diterima, packing aman berlapis-lapis bubble wrap, penjual juga ramah, insyaAllah next bakalan order lagi, terima kasih DeBrownies."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Siti Nurhaliza</h4>
+                            <p>Jakarta</p>
+                        </div>
+                        <img src="images/shopee-logo.svg" alt="Shopee" class="platform-logo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Sehari langsung nyampe cepat banget, seller ramah, produk aman banget karena dibungkus kardus dan bubble wrap jadi dalemnya aman banget dan gak rusak. Rasanya enak banget!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Bandung</p>
+                        </div>
+                        <img src="images/shopee-logo.svg" alt="Shopee" class="platform-logo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Enak, cocok buat teman ngeteh. Packing aman, pengiriman cepat. Browniesnya lembut dan fudgy banget. Makasih DeBrownies!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Rina Wijaya</h4>
+                            <p>Surabaya</p>
+                        </div>
+                        <img src="images/shopee-logo.svg" alt="Shopee" class="platform-logo" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content" id="sejarah">
+                    <h2>Sejarah</h2>
+                    <p>DeeBrownies didirikan pada tahun 2010 dengan visi menghadirkan brownies berkualitas premium dengan rasa yang istimewa. Berawal dari usaha rumahan, kini DeBrownies telah memiliki puluhan outlet di berbagai kota.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-history.svg" alt="Sejarah DeBrownies" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div class="about-grid reverse" id="visi">
+                <div class="about-image">
+                    <img src="images/about-vision.svg" alt="Visi DeBrownies" loading="lazy" decoding="async">
+                </div>
+                <div class="about-content">
+                    <h2>Visi</h2>
+                    <p>Menjadi brand brownies terpercaya dan terkemuka di Indonesia dengan menghadirkan produk berkualitas premium yang mengedepankan cita rasa, inovasi, dan kepuasan pelanggan.</p>
+                </div>
+            </div>
+
+            <div class="about-grid" id="misi">
+                <div class="about-content">
+                    <h2>Misi</h2>
+                    <ul>
+                        <li>Menghasilkan produk brownies berkualitas tinggi dengan bahan pilihan</li>
+                        <li>Memberikan pelayanan terbaik kepada pelanggan</li>
+                        <li>Mengembangkan inovasi produk secara berkelanjutan</li>
+                        <li>Memberdayakan mitra usaha di seluruh Indonesia</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="images/about-mission.svg" alt="Misi DeeBrownies" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outlets Section -->
+    <section class="outlets-section" id="outlets">
+        <div class="container">
+            <h2 class="section-title">Outlet Kami</h2>
+            <p class="section-subtitle">Temukan Outlet DeeBrownies Terdekat</p>
+
+            <div class="outlets-grid">
+                <div class="outlet-card">
+                    <div class="outlet-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Jakarta Pusat</h3>
+                    <p>Jl. Sudirman No. 123, Jakarta Pusat</p>
+                    <p class="outlet-contact"><i class="fas fa-phone"></i> (021) 1234-5678</p>
+                    <a href="#" class="btn-direction">Dapatkan Arah</a>
+                </div>
+
+                <div class="outlet-card">
+                    <div class="outlet-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Bandung</h3>
+                    <p>Jl. Dago No. 45, Bandung</p>
+                    <p class="outlet-contact"><i class="fas fa-phone"></i> (022) 8765-4321</p>
+                    <a href="#" class="btn-direction">Dapatkan Arah</a>
+                </div>
+
+                <div class="outlet-card">
+                    <div class="outlet-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Surabaya</h3>
+                    <p>Jl. Pemuda No. 78, Surabaya</p>
+                    <p class="outlet-contact"><i class="fas fa-phone"></i> (031) 5555-6666</p>
+                    <a href="#" class="btn-direction">Dapatkan Arah</a>
+                </div>
+
+                <div class="outlet-card">
+                    <div class="outlet-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <h3>Yogyakarta</h3>
+                    <p>Jl. Malioboro No. 99, Yogyakarta</p>
+                    <p class="outlet-contact"><i class="fas fa-phone"></i> (0274) 7777-8888</p>
+                    <a href="#" class="btn-direction">Dapatkan Arah</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership Details Section -->
+    <section class="partnership-details" id="agen">
+        <div class="container">
+            <div class="partnership-card">
+                <h2>Program Agen DeeBrownies</h2>
+                <div class="partnership-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Modal terjangkau mulai dari Rp 5.000.000</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Profit margin hingga 30%</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Pelatihan dan pendampingan gratis</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Support marketing dan promosi</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/6281240806323" class="btn btn-primary">Daftar Sekarang</a>
+            </div>
+
+            <div class="partnership-card" id="reseller">
+                <h2>Program Reseller DeeBrownies</h2>
+                <div class="partnership-benefits">
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Tanpa modal awal</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Harga reseller special</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Dropship tersedia</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle"></i>
+                        <p>Katalog produk lengkap</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/6281240806323" class="btn btn-primary">Daftar Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section -->
+    <section class="career-section" id="career">
+        <div class="container">
+            <h2 class="section-title">Bergabung Bersama Kami</h2>
+            <p class="section-subtitle">Mari berkembang bersama DeeBrownies</p>
+
+            <div class="career-grid">
+                <div class="career-card">
+                    <h3>Sales & Marketing</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Jakarta</p>
+                    <p class="job-type">Full Time</p>
+                    <a href="#" class="btn-apply">Lamar Sekarang</a>
+                </div>
+
+                <div class="career-card">
+                    <h3>Production Staff</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Bandung</p>
+                    <p class="job-type">Full Time</p>
+                    <a href="#" class="btn-apply">Lamar Sekarang</a>
+                </div>
+
+                <div class="career-card">
+                    <h3>Kasir</h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> Surabaya</p>
+                    <p class="job-type">Full Time</p>
+                    <a href="#" class="btn-apply">Lamar Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DeeBrownies</h3>
+                    <p>Custom Brownies | Fudgy Brownies</p>
+                    <p>Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10220</p>
+                    <p><i class="fas fa-phone"></i> Hotline: 0812-4080-6323</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0812-4080-6323</p>
+                    <p><i class="fas fa-envelope"></i> debrownies@gmail.com</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#outlets">Outlet</a></li>
+                        <li><a href="#career">Karir</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Partnership</h4>
+                    <ul>
+                        <li><a href="#agen">Agen</a></li>
+                        <li><a href="#reseller">Reseller</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-shopee"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DeeBrownies. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Promo -->
+    <div id="promoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modalImage" src="" alt="Promo">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Placeholder Images - DeBrownies</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1 {
+            color: #8B4513;
+            text-align: center;
+        }
+        .info {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .info h2 {
+            color: #8B4513;
+            margin-top: 0;
+        }
+        .info p {
+            line-height: 1.6;
+            color: #666;
+        }
+        .info code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #8B4513;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .image-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .image-info {
+            padding: 15px;
+        }
+        .image-info h3 {
+            margin: 0 0 10px 0;
+            color: #8B4513;
+            font-size: 18px;
+        }
+        .image-info p {
+            margin: 5px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #8B4513;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        .download-btn:hover {
+            background: #5C3317;
+        }
+        .instructions {
+            background: #FFF3E0;
+            border-left: 4px solid #8B4513;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #8B4513;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍫 DeBrownies Placeholder Images Generator</h1>
+    
+    <div class="info">
+        <h2>📋 Panduan Penggunaan</h2>
+        <p>File ini membantu Anda membuat placeholder images untuk testing website sebelum foto asli siap.</p>
+        <p><strong>PENTING:</strong> Ini hanya untuk testing! Ganti dengan foto brownies asli sebelum launch website.</p>
+    </div>
+
+    <div class="instructions">
+        <h3>🚀 Cara Menggunakan:</h3>
+        <ol>
+            <li>Scroll ke bawah untuk melihat semua placeholder images</li>
+            <li>Klik kanan pada gambar → "Save Image As..."</li>
+            <li>Simpan dengan nama yang sesuai (misalnya: <code>product1.jpg</code>)</li>
+            <li>Atau klik tombol "Download" di bawah setiap gambar</li>
+            <li>Copy semua gambar ke folder <code>images/</code> di website</li>
+            <li>Refresh website untuk melihat hasilnya</li>
+        </ol>
+        <p><strong>Tip:</strong> Untuk hasil lebih baik, buka website di browser dan screenshot area gambar, atau gunakan tools seperti Canva untuk membuat gambar custom.</p>
+    </div>
+
+    <h2 style="color: #8B4513; margin-top: 40px;">📸 Promo Images (800x600)</h2>
+    <div class="gallery">
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/8B4513/FFFFFF?text=PAKET+HEMAT+KELUARGA%0ABeli+3+Gratis+1" alt="Promo 1">
+            <div class="image-info">
+                <h3>promo1.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Paket Hemat Keluarga</p>
+                <a href="https://via.placeholder.com/800x600/8B4513/FFFFFF?text=PAKET+HEMAT+KELUARGA%0ABeli+3+Gratis+1" download="promo1.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/D2691E/FFFFFF?text=CUSTOM+BROWNIES%0ADesain+Sesuai+Keinginan" alt="Promo 2">
+            <div class="image-info">
+                <h3>promo2.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Custom Brownies</p>
+                <a href="https://via.placeholder.com/800x600/D2691E/FFFFFF?text=CUSTOM+BROWNIES%0ADesain+Sesuai+Keinginan" download="promo2.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/6F4E37/FFFFFF?text=DISKON+20%25%0APembelian+Grosir" alt="Promo 3">
+            <div class="image-info">
+                <h3>promo3.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Diskon 20%</p>
+                <a href="https://via.placeholder.com/800x600/6F4E37/FFFFFF?text=DISKON+20%25%0APembelian+Grosir" download="promo3.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="color: #8B4513; margin-top: 40px;">🧁 Product Images (600x600)</h2>
+    <div class="gallery">
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/8B4513/FFFFFF?text=Fudgy+Brownies%0AOriginal" alt="Product 1">
+            <div class="image-info">
+                <h3>product1.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Fudgy Brownies Original</p>
+                <a href="https://via.placeholder.com/600x600/8B4513/FFFFFF?text=Fudgy+Brownies%0AOriginal" download="product1.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/D2691E/FFFFFF?text=Fudgy+Brownies%0ANutella" alt="Product 2">
+            <div class="image-info">
+                <h3>product2.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Fudgy Brownies Nutella</p>
+                <a href="https://via.placeholder.com/600x600/D2691E/FFFFFF?text=Fudgy+Brownies%0ANutella" download="product2.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/6F4E37/FFFFFF?text=Custom%0ABrownies" alt="Product 3">
+            <div class="image-info">
+                <h3>product3.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Custom Brownies</p>
+                <a href="https://via.placeholder.com/600x600/6F4E37/FFFFFF?text=Custom%0ABrownies" download="product3.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/A0522D/FFFFFF?text=Premium%0ABrownies+Box" alt="Product 4">
+            <div class="image-info">
+                <h3>product4.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Premium Brownies Box</p>
+                <a href="https://via.placeholder.com/600x600/A0522D/FFFFFF?text=Premium%0ABrownies+Box" download="product4.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/8B7355/FFFFFF?text=Fudgy+Brownies%0AOvomaltine" alt="Product 5">
+            <div class="image-info">
+                <h3>product5.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Fudgy Brownies Ovomaltine</p>
+                <a href="https://via.placeholder.com/600x600/8B7355/FFFFFF?text=Fudgy+Brownies%0AOvomaltine" download="product5.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/600x600/CD853F/FFFFFF?text=Premium%0ACheese+Brownies" alt="Product 6">
+            <div class="image-info">
+                <h3>product6.jpg</h3>
+                <p>Ukuran: 600x600 pixels</p>
+                <p>Produk: Premium Cheese Brownies</p>
+                <a href="https://via.placeholder.com/600x600/CD853F/FFFFFF?text=Premium%0ACheese+Brownies" download="product6.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="color: #8B4513; margin-top: 40px;">📖 About Images (800x600)</h2>
+    <div class="gallery">
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/8B4513/FFFFFF?text=SEJARAH%0ADeBrownies%0A2010-2025" alt="About History">
+            <div class="image-info">
+                <h3>about-history.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Sejarah DeBrownies</p>
+                <a href="https://via.placeholder.com/800x600/8B4513/FFFFFF?text=SEJARAH%0ADeBrownies%0A2010-2025" download="about-history.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/D2691E/FFFFFF?text=VISI%0AMenjadi+Brand%0ATerpercaya" alt="About Vision">
+            <div class="image-info">
+                <h3>about-vision.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Visi DeBrownies</p>
+                <a href="https://via.placeholder.com/800x600/D2691E/FFFFFF?text=VISI%0AMenjadi+Brand%0ATerpercaya" download="about-vision.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+
+        <div class="image-card">
+            <img src="https://via.placeholder.com/800x600/6F4E37/FFFFFF?text=MISI%0AKualitas+Premium%0APelayanan+Terbaik" alt="About Mission">
+            <div class="image-info">
+                <h3>about-mission.jpg</h3>
+                <p>Ukuran: 800x600 pixels</p>
+                <p>Konten: Misi DeBrownies</p>
+                <a href="https://via.placeholder.com/800x600/6F4E37/FFFFFF?text=MISI%0AKualitas+Premium%0APelayanan+Terbaik" download="about-mission.jpg" class="download-btn">Download</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="info" style="margin-top: 50px; background: #FFF3E0;">
+        <h2>⚠️ Important Reminders</h2>
+        <ul style="color: #666; line-height: 1.8;">
+            <li>Placeholder ini HANYA untuk testing dan development</li>
+            <li>WAJIB diganti dengan foto brownies asli sebelum website live</li>
+            <li>Foto produk yang bagus = conversion rate yang lebih tinggi</li>
+            <li>Invest di fotografi produk profesional jika memungkinkan</li>
+            <li>Atau gunakan smartphone modern dengan pencahayaan natural yang baik</li>
+            <li>Logo Shopee bisa didownload dari Google Images atau website resmi Shopee</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin: 50px 0; padding: 30px; background: white; border-radius: 10px;">
+        <h2 style="color: #8B4513; margin-bottom: 15px;">🎯 Next Steps</h2>
+        <p style="color: #666; font-size: 16px; line-height: 1.8;">
+            Setelah download semua placeholder images:<br>
+            1. Copy ke folder <code>images/</code><br>
+            2. Test website dengan placeholder<br>
+            3. Siapkan foto brownies asli<br>
+            4. Ganti satu per satu dengan foto asli<br>
+            5. Launch website! 🚀
+        </p>
+    </div>
+
+    <footer style="text-align: center; padding: 30px; color: #666;">
+        <p><strong>DeBrownies</strong></p>
+        <p>Custom Brownies | Fudgy Brownies</p>
+        <p style="font-size: 14px; margin-top: 20px;">© 2025 DeBrownies. All rights reserved.</p>
+    </footer>
+</body>
+</html>

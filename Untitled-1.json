@@ -1,0 +1,31 @@
+{
+  "name": "debrownies-website",
+  "version": "1.0.0",
+  "description": "DeBrownies - Custom Brownies | Fudgy Brownies Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "live-server --port=8000 --open=index.html",
+    "dev": "live-server --port=8000 --open=index.html --watch=.",
+    "build": "echo 'No build process needed - this is a static site'",
+    "test": "echo 'Open index.html in browser to test'"
+  },
+  "keywords": [
+    "brownies",
+    "debrownies",
+    "fudgy-brownies",
+    "custom-brownies",
+    "bakery",
+    "dessert",
+    "website"
+  ],
+  "author": "DeBrownies Team",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/debrownies-website.git"
+  },
+  "homepage": "https://debrownies.id"
+}
