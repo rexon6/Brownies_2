@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (confirmApply) {
                 const message = `Halo, saya tertarik melamar untuk posisi ${jobTitle} di DeBrownies.`;
-                window.open(`https://wa.me/6281240806323?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/6285143252624?text=${encodeURIComponent(message)}`, '_blank');
             }
         });
     });
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const programType = this.closest('.partnership-card').querySelector('h2').textContent;
             const message = `Halo, saya tertarik dengan ${programType}. Mohon informasi lebih lanjut.`;
-            window.open(`https://wa.me/6281240806323?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/6285143252624?text=${encodeURIComponent(message)}`, '_blank');
         });
     });
 

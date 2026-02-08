@@ -12,13 +12,13 @@
 </head>
 <body>
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/6281240806323" class="whatsapp-float" target="_blank" rel="noopener">
+    <a href="https://wa.me/6285143252624" class="whatsapp-float" target="_blank" rel="noopener">
         <i class="fab fa-whatsapp"></i>
-        <span>Chat Us<br>0812-4080-6323</span>
+        <span>Chat Us<br>0851-4325-2624</span>
     </a>
 
     <!-- Shopping Cart Floating Button -->
-    <a href="#products" class="cart-float">
+    <a href="#cart" class="cart-float" id="cartFloat">
         <i class="fas fa-shopping-bag"></i>
         <span class="cart-count">0</span>
     </a>
@@ -29,14 +29,14 @@
             <div class="container">
                 <div class="top-bar-content">
                     <div class="contact-info">
-                        <a href="tel:081240806323"><i class="fas fa-phone"></i> 0812-4080-6323</a>
+                        <a href="tel:085143252624"><i class="fas fa-phone"></i> 0851-4325-2624</a>
                         <a href="mailto:deebrownies@gmail.com"><i class="fas fa-envelope"></i> deebrownies@gmail.com</a>
                     </div>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-shopee"></i></a>
+                        <a href="#" class="social-logo"><img src="images/logo-1.png" alt="Logo 1"></a>
                     </div>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     <p class="slide-subtitle" data-aos="fade-up" data-aos-delay="100">Custom Brownies Premium dengan Rasa Istimewa</p>
                     <div class="slide-buttons" data-aos="fade-up" data-aos-delay="200">
                         <a href="#partnership" class="btn btn-primary">Info Kemitraan</a>
-                        <a href="https://wa.me/6281240806323" class="btn btn-secondary">Belanja Sekarang</a>
+                        <a href="https://wa.me/6285143252624" class="btn btn-secondary">Belanja Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     <h2 class="slide-title">Pulang Bawa DeBrownies</h2>
                     <p class="slide-subtitle">Hadirkan Kehangatan untuk Keluarga</p>
                     <div class="slide-buttons">
-                        <a href="https://wa.me/6281240806323" class="btn btn-primary">Belanja Sekarang</a>
+                        <a href="https://wa.me/6285143252624" class="btn btn-primary">Belanja Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
             <div class="promo-grid">
                 <div class="promo-card" onclick="openModal('promo-1')">
                     <div class="promo-image">
-                        <img src="images/promo-1.svg" alt="Promo Paket Hemat Keluarga" loading="lazy" decoding="async">
+                        <img src="images/paket hemat.png" alt="Promo Paket Hemat Keluarga" loading="lazy" decoding="async">
                         <div class="promo-badge">HOT DEAL</div>
                     </div>
                     <div class="promo-content">
@@ -149,7 +149,7 @@
 
                 <div class="promo-card" onclick="openModal('promo-2')">
                     <div class="promo-image">
-                        <img src="images/promo-2.svg" alt="Promo Custom Brownies" loading="lazy" decoding="async">
+                        <img src="images/custom brownies 2.webp" alt="Promo Custom Brownies" loading="lazy" decoding="async">
                         <div class="promo-badge">NEW</div>
                     </div>
                     <div class="promo-content">
@@ -160,7 +160,7 @@
 
                 <div class="promo-card" onclick="openModal('promo-3')">
                     <div class="promo-image">
-                        <img src="images/promo-3.svg" alt="Promo Diskon 20 Persen" loading="lazy" decoding="async">
+                        <img src="images/promo diskon 20 persen.jpg" alt="Promo Diskon 20 Persen" class="promo-img promo-img-up" loading="lazy" decoding="async">
                         <div class="promo-badge">PROMO</div>
                     </div>
                     <div class="promo-content">
@@ -215,7 +215,7 @@
             <div class="products-grid">
                 <div class="product-card" data-category="fudgy">
                     <div class="product-image">
-                        <img src="images/product-1.svg" alt="Fudgy Brownies Original" loading="lazy" decoding="async">
+                        <img src="images/product-1.jpg" alt="Fudgy Brownies Original" loading="lazy" decoding="async">
                         <div class="product-overlay">
                             <button class="quick-view">Quick View</button>
                         </div>
@@ -237,7 +237,7 @@
 
                 <div class="product-card" data-category="fudgy">
                     <div class="product-image">
-                        <img src="images/product-2.svg" alt="Fudgy Brownies Nutella" loading="lazy" decoding="async">
+                        <img src="images/product-2.jpg" alt="Fudgy Brownies Nutella" loading="lazy" decoding="async">
                         <div class="product-overlay">
                             <button class="quick-view">Quick View</button>
                         </div>
@@ -259,7 +259,7 @@
 
                 <div class="product-card" data-category="custom">
                     <div class="product-image">
-                        <img src="images/product-3.svg" alt="Custom Brownies" loading="lazy" decoding="async">
+                        <img src="images/custom brownies 2.webp" alt="Custom Brownies" loading="lazy" decoding="async">
                         <div class="product-badge">CUSTOM</div>
                         <div class="product-overlay">
                             <button class="quick-view">Quick View</button>
@@ -527,7 +527,7 @@
                         <p>Support marketing dan promosi</p>
                     </div>
                 </div>
-                <a href="https://wa.me/6281240806323" class="btn btn-primary">Daftar Sekarang</a>
+                <a href="https://wa.me/6285143252624" class="btn btn-primary">Daftar Sekarang</a>
             </div>
 
             <div class="partnership-card" id="reseller">
@@ -550,7 +550,7 @@
                         <p>Katalog produk lengkap</p>
                     </div>
                 </div>
-                <a href="https://wa.me/6281240806323" class="btn btn-primary">Daftar Sekarang</a>
+                <a href="https://wa.me/6285143252624" class="btn btn-primary">Daftar Sekarang</a>
             </div>
         </div>
     </section>
@@ -594,8 +594,8 @@
                     <h3>DeeBrownies</h3>
                     <p>Custom Brownies | Fudgy Brownies</p>
                     <p>Jl. Sudirman No. 123, Jakarta Pusat, DKI Jakarta 10220</p>
-                    <p><i class="fas fa-phone"></i> Hotline: 0812-4080-6323</p>
-                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0812-4080-6323</p>
+                    <p><i class="fas fa-phone"></i> Hotline: 0851-4325-2624</p>
+                    <p><i class="fab fa-whatsapp"></i> WhatsApp: 0851-4325-2624</p>
                     <p><i class="fas fa-envelope"></i> debrownies@gmail.com</p>
                 </div>
 
@@ -640,6 +640,90 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <img id="modalImage" src="" alt="Promo">
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="cart-modal" aria-hidden="true">
+        <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+            <div class="cart-header">
+                <h3 id="cartTitle">Keranjang</h3>
+                <button class="cart-close" type="button" aria-label="Tutup">&times;</button>
+            </div>
+
+            <div class="cart-items" id="cartItems"></div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cartSubtotal">Rp 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Ongkir</span>
+                    <span id="cartShipping">Rp 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cartTotal">Rp 0</span>
+                </div>
+            </div>
+
+            <form id="checkoutForm" class="checkout-form">
+                <h4>Alamat Pengantaran</h4>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="custName">Nama Lengkap</label>
+                        <input id="custName" name="custName" type="text" placeholder="Nama penerima" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="custPhone">No. WhatsApp</label>
+                        <input id="custPhone" name="custPhone" type="tel" placeholder="08xxxxxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="custAddress">Alamat Lengkap</label>
+                    <textarea id="custAddress" name="custAddress" rows="3" placeholder="Jalan, nomor rumah, RT/RW, patokan" required></textarea>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="custCity">Kota</label>
+                        <input id="custCity" name="custCity" type="text" placeholder="Kota/Kabupaten" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="custPostal">Kode Pos</label>
+                        <input id="custPostal" name="custPostal" type="text" placeholder="12345" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="shippingMethod">Metode Pengiriman</label>
+                        <select id="shippingMethod" name="shippingMethod" required>
+                            <option value="reguler" selected>Reguler (Rp 15.000)</option>
+                            <option value="instan">Instan (Rp 25.000)</option>
+                            <option value="pickup">Ambil di Toko (Gratis)</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="paymentMethod">Metode Pembayaran</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="transfer" selected>Transfer Bank</option>
+                            <option value="qris">QRIS</option>
+                            <option value="cod">COD (Bayar di Tempat)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="custNote">Catatan (opsional)</label>
+                    <textarea id="custNote" name="custNote" rows="2" placeholder="Contoh: titip salam, minta sendok, dll"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-checkout">Pesan via WhatsApp</button>
+                <p class="checkout-hint">Pesanan akan dikirim ke WhatsApp untuk konfirmasi pembayaran & pengiriman.</p>
+            </form>
         </div>
     </div>
 

@@ -241,17 +241,173 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== SHOPPING CART ==========
-    let cartCount = 0;
+    const cart = [];
     const cartCountElement = document.querySelector('.cart-count');
     const addToCartButtons = document.querySelectorAll('.btn-add-cart');
+    const cartModal = document.getElementById('cartModal');
+    const cartItemsElement = document.getElementById('cartItems');
+    const cartSubtotalElement = document.getElementById('cartSubtotal');
+    const cartShippingElement = document.getElementById('cartShipping');
+    const cartTotalElement = document.getElementById('cartTotal');
+    const cartFloat = document.getElementById('cartFloat');
+    const cartCloseBtn = document.querySelector('.cart-close');
+    const checkoutForm = document.getElementById('checkoutForm');
+    const shippingSelect = document.getElementById('shippingMethod');
+
+    function formatRupiah(value) {
+        return new Intl.NumberFormat('id-ID').format(value);
+    }
+
+    function parsePrice(text) {
+        const numeric = text.replace(/[^\d]/g, '');
+        return numeric ? parseInt(numeric, 10) : 0;
+    }
+
+    function getShippingCost() {
+        if (!shippingSelect) return 0;
+        const method = shippingSelect.value;
+        if (method === 'instan') return 25000;
+        if (method === 'pickup') return 0;
+        return 15000;
+    }
+
+    function updateCartCount() {
+        const count = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCountElement.textContent = count;
+    }
+
+    function renderCart() {
+        if (!cartItemsElement) return;
+
+        if (cart.length === 0) {
+            cartItemsElement.innerHTML = '<div class="cart-empty">Keranjang masih kosong. Tambahkan produk dulu.</div>';
+        } else {
+            cartItemsElement.innerHTML = cart.map(item => `
+                <div class="cart-item" data-id="${item.id}">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-price">Rp ${formatRupiah(item.price)}</div>
+                        <div class="cart-item-controls">
+                            <button class="qty-btn" data-action="decrease">-</button>
+                            <span class="qty-value">${item.qty}</span>
+                            <button class="qty-btn" data-action="increase">+</button>
+                            <button class="remove-btn" data-action="remove">Hapus</button>
+                        </div>
+                    </div>
+                    <div class="cart-item-price">Rp ${formatRupiah(item.price * item.qty)}</div>
+                </div>
+            `).join('');
+        }
+
+        const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+        const shipping = getShippingCost();
+        const total = subtotal + shipping;
+
+        cartSubtotalElement.textContent = `Rp ${formatRupiah(subtotal)}`;
+        cartShippingElement.textContent = `Rp ${formatRupiah(shipping)}`;
+        cartTotalElement.textContent = `Rp ${formatRupiah(total)}`;
+    }
+
+    function addItemToCart(item) {
+        const existing = cart.find(cartItem => cartItem.id === item.id);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ ...item, qty: 1 });
+        }
+        updateCartCount();
+        renderCart();
+        showNotification('Produk berhasil ditambahkan ke keranjang!');
+    }
+
+    function openCart() {
+        if (!cartModal) return;
+        cartModal.classList.add('active');
+        cartModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+        if (!cartModal) return;
+        cartModal.classList.remove('active');
+        cartModal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = 'auto';
+    }
+
+    if (cartFloat) {
+        cartFloat.addEventListener('click', function(e) {
+            e.preventDefault();
+            openCart();
+        });
+    }
+
+    if (cartCloseBtn) {
+        cartCloseBtn.addEventListener('click', closeCart);
+    }
+
+    if (cartModal) {
+        cartModal.addEventListener('click', function(e) {
+            if (e.target === cartModal) {
+                closeCart();
+            }
+        });
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && cartModal && cartModal.classList.contains('active')) {
+            closeCart();
+        }
+    });
+
+    if (shippingSelect) {
+        shippingSelect.addEventListener('change', renderCart);
+    }
+
+    cartItemsElement?.addEventListener('click', function(e) {
+        const action = e.target.getAttribute('data-action');
+        if (!action) return;
+
+        const itemEl = e.target.closest('.cart-item');
+        if (!itemEl) return;
+        const itemId = itemEl.getAttribute('data-id');
+        const item = cart.find(cartItem => cartItem.id === itemId);
+        if (!item) return;
+
+        if (action === 'increase') {
+            item.qty += 1;
+        } else if (action === 'decrease') {
+            item.qty -= 1;
+            if (item.qty <= 0) {
+                const idx = cart.findIndex(cartItem => cartItem.id === itemId);
+                cart.splice(idx, 1);
+            }
+        } else if (action === 'remove') {
+            const idx = cart.findIndex(cartItem => cartItem.id === itemId);
+            cart.splice(idx, 1);
+        }
+
+        updateCartCount();
+        renderCart();
+    });
 
     addToCartButtons.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            
-            // Increment cart count
-            cartCount++;
-            cartCountElement.textContent = cartCount;
+
+            const productCard = this.closest('.product-card');
+            if (!productCard) return;
+            const name = productCard.querySelector('h3')?.textContent?.trim() || 'Produk';
+            const priceText = productCard.querySelector('.product-price')?.textContent || 'Rp 0';
+            const price = parsePrice(priceText);
+            const image = productCard.querySelector('img')?.getAttribute('src') || '';
+
+            addItemToCart({
+                id: name.toLowerCase().replace(/\s+/g, '-'),
+                name,
+                price,
+                image
+            });
 
             // Animate button
             this.style.transform = 'scale(0.9)';
@@ -263,16 +419,69 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
 
             // Animate cart icon
-            const cartFloat = document.querySelector('.cart-float');
-            cartFloat.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                cartFloat.style.transform = 'scale(1)';
-            }, 300);
-
-            // Show notification
-            showNotification('Produk berhasil ditambahkan ke keranjang!');
+            if (cartFloat) {
+                cartFloat.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartFloat.style.transform = 'scale(1)';
+                }, 300);
+            }
         });
     });
+
+    updateCartCount();
+    renderCart();
+
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (cart.length === 0) {
+                showNotification('Keranjang masih kosong.');
+                return;
+            }
+
+            const formData = new FormData(checkoutForm);
+            const name = formData.get('custName');
+            const phone = formData.get('custPhone');
+            const address = formData.get('custAddress');
+            const city = formData.get('custCity');
+            const postal = formData.get('custPostal');
+            const shippingMethod = formData.get('shippingMethod');
+            const paymentMethod = formData.get('paymentMethod');
+            const note = formData.get('custNote') || '-';
+
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const shipping = getShippingCost();
+            const total = subtotal + shipping;
+
+            const itemsText = cart.map(item => 
+                `- ${item.name} x${item.qty} = Rp ${formatRupiah(item.price * item.qty)}`
+            ).join('\n');
+
+            const message = [
+                'Halo DeeBrownies, saya ingin melakukan pemesanan:',
+                '',
+                itemsText,
+                '',
+                `Subtotal: Rp ${formatRupiah(subtotal)}`,
+                `Ongkir: Rp ${formatRupiah(shipping)}`,
+                `Total: Rp ${formatRupiah(total)}`,
+                '',
+                'Alamat Pengantaran:',
+                `Nama: ${name}`,
+                `No. WA: ${phone}`,
+                `Alamat: ${address}`,
+                `Kota: ${city}`,
+                `Kode Pos: ${postal}`,
+                '',
+                `Metode Pengiriman: ${shippingMethod}`,
+                `Metode Pembayaran: ${paymentMethod}`,
+                `Catatan: ${note}`
+            ].join('\n');
+
+            window.open(`https://wa.me/6285143252624?text=${encodeURIComponent(message)}`, '_blank');
+        });
+    }
 
     // ========== PROMO MODAL ==========
     const modal = document.getElementById('promoModal');
@@ -450,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (confirmApply) {
                 const message = `Halo, saya tertarik melamar untuk posisi ${jobTitle} di DeBrownies.`;
-                window.open(`https://wa.me/6281240806323?text=${encodeURIComponent(message)}`, '_blank');
+                window.open(`https://wa.me/6285143252624?text=${encodeURIComponent(message)}`, '_blank');
             }
         });
     });
@@ -463,7 +672,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const programType = this.closest('.partnership-card').querySelector('h2').textContent;
             const message = `Halo, saya tertarik dengan ${programType}. Mohon informasi lebih lanjut.`;
-            window.open(`https://wa.me/6281240806323?text=${encodeURIComponent(message)}`, '_blank');
+            window.open(`https://wa.me/6285143252624?text=${encodeURIComponent(message)}`, '_blank');
         });
     });
 
@@ -530,9 +739,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add to cart from quick view
             const addToCartBtn = quickViewModal.querySelector('.btn-add-cart');
             addToCartBtn.addEventListener('click', function() {
-                cartCount++;
-                cartCountElement.textContent = cartCount;
-                showNotification('Produk berhasil ditambahkan ke keranjang!');
+                const image = productCard.querySelector('img')?.getAttribute('src') || '';
+                addItemToCart({
+                    id: productName.toLowerCase().replace(/\s+/g, '-'),
+                    name: productName,
+                    price: parsePrice(productPrice),
+                    image
+                });
                 quickViewModal.remove();
                 document.body.style.overflow = 'auto';
             });
