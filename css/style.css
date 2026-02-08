@@ -1439,6 +1439,33 @@ section {
     border-radius: 10px;
 }
 
+/* Promo modal image sizing (avoid oversized image) */
+#promoModal .modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 700px;
+}
+
+#promoModal .modal-content img {
+    max-height: 420px;
+    object-fit: contain;
+}
+
+#modalTitle {
+    margin-top: 20px;
+    font-family: var(--font-heading);
+    color: var(--primary-brown);
+    font-size: 26px;
+}
+
+#modalDesc {
+    margin-top: 10px;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
 .close {
     position: absolute;
     top: -40px;

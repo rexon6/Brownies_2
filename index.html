@@ -28,10 +28,7 @@
         <div class="top-bar">
             <div class="container">
                 <div class="top-bar-content">
-                    <div class="contact-info">
-                        <a href="tel:085143252624"><i class="fas fa-phone"></i> 0851-4325-2624</a>
-                        <a href="mailto:deebrownies@gmail.com"><i class="fas fa-envelope"></i> deebrownies@gmail.com</a>
-                    </div>
+                    <div class="contact-info"></div>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
@@ -136,7 +133,7 @@
             <p class="section-subtitle">Klik Gambar Untuk Memperbesar</p>
             
             <div class="promo-grid">
-                <div class="promo-card" onclick="openModal('promo-1')">
+                <div class="promo-card" onclick="openModal(this)" data-image="images/paket hemat.png" data-title="Paket Hemat Keluarga" data-desc="Beli 3 Gratis 1">
                     <div class="promo-image">
                         <img src="images/paket hemat.png" alt="Promo Paket Hemat Keluarga" loading="lazy" decoding="async">
                         <div class="promo-badge">HOT DEAL</div>
@@ -147,7 +144,7 @@
                     </div>
                 </div>
 
-                <div class="promo-card" onclick="openModal('promo-2')">
+                <div class="promo-card" onclick="openModal(this)" data-image="images/custom brownies 2.webp" data-title="Custom Brownies" data-desc="Desain Sesuai Keinginan">
                     <div class="promo-image">
                         <img src="images/custom brownies 2.webp" alt="Promo Custom Brownies" loading="lazy" decoding="async">
                         <div class="promo-badge">NEW</div>
@@ -158,7 +155,7 @@
                     </div>
                 </div>
 
-                <div class="promo-card" onclick="openModal('promo-3')">
+                <div class="promo-card" onclick="openModal(this)" data-image="images/promo diskon 20 persen.jpg" data-title="Diskon 20%" data-desc="Untuk Pembelian Grosir">
                     <div class="promo-image">
                         <img src="images/promo diskon 20 persen.jpg" alt="Promo Diskon 20 Persen" class="promo-img promo-img-up" loading="lazy" decoding="async">
                         <div class="promo-badge">PROMO</div>
@@ -640,6 +637,8 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <img id="modalImage" src="" alt="Promo">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc"></p>
         </div>
     </div>
 

@@ -321,6 +321,15 @@ document.addEventListener('DOMContentLoaded', function() {
         showNotification('Produk berhasil ditambahkan ke keranjang!');
     }
 
+    function getImageUrl(src) {
+        if (!src) return '';
+        if (/^https?:\/\//i.test(src)) return src;
+        if (location.origin && location.origin !== 'null') {
+            return `${location.origin}/${src.replace(/^\/+/, '')}`;
+        }
+        return src;
+    }
+
     function openCart() {
         if (!cartModal) return;
         cartModal.classList.add('active');
@@ -454,9 +463,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const shipping = getShippingCost();
             const total = subtotal + shipping;
 
-            const itemsText = cart.map(item => 
-                `- ${item.name} x${item.qty} = Rp ${formatRupiah(item.price * item.qty)}`
-            ).join('\n');
+            const itemsText = cart.map(item => {
+                const imageUrl = getImageUrl(item.image);
+                const imageLine = imageUrl ? `\n  Gambar: ${imageUrl}` : '';
+                return `- ${item.name} x${item.qty} = Rp ${formatRupiah(item.price * item.qty)}${imageLine}`;
+            }).join('\n');
 
             const message = [
                 'Halo DeeBrownies, saya ingin melakukan pemesanan:',
@@ -486,13 +497,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========== PROMO MODAL ==========
     const modal = document.getElementById('promoModal');
     const modalImg = document.getElementById('modalImage');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDesc = document.getElementById('modalDesc');
     const closeModal = document.querySelector('.close');
 
-    window.openModal = function(promoId) {
+    window.openModal = function(card) {
+        if (!card) return;
         modal.style.display = 'block';
-        // In production, you would load the actual image
-        // For now, we'll use a placeholder
-        modalImg.src = `images/${promoId}.jpg`;
+        modalImg.src = card.dataset.image || '';
+        modalTitle.textContent = card.dataset.title || '';
+        modalDesc.textContent = card.dataset.desc || '';
         document.body.style.overflow = 'hidden';
     };
 
@@ -702,12 +716,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const productPrice = productCard.querySelector('.product-price').textContent;
             
             // Create quick view modal
+            const productImage = productCard.querySelector('img')?.getAttribute('src') || '';
             const quickViewModal = document.createElement('div');
             quickViewModal.className = 'modal';
             quickViewModal.style.display = 'block';
             quickViewModal.innerHTML = `
                 <div class="modal-content" style="background: white; padding: 40px; border-radius: 15px; max-width: 600px;">
                     <span class="close" style="color: #8B4513;">&times;</span>
+                    <img src="${productImage}" alt="${productName}" style="width: 100%; height: 260px; object-fit: cover; border-radius: 12px; margin-bottom: 20px;">
                     <h2 style="color: #8B4513; font-family: 'Playfair Display', serif; margin-bottom: 20px;">${productName}</h2>
                     <p style="font-size: 28px; color: #8B4513; font-weight: 700; margin-bottom: 20px;">${productPrice}</p>
                     <p style="color: #666; line-height: 1.8; margin-bottom: 30px;">
