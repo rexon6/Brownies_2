@@ -1512,7 +1512,6 @@ section {
 
     .dropdown-menu {
         position: static;
-        display: none;
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -1524,8 +1523,7 @@ section {
     }
 
     .dropdown.active .dropdown-menu {
-        display: none;
-        max-height: 0;
+        max-height: 500px;
     }
 
     .slide-title {
