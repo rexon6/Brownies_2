@@ -1500,6 +1500,7 @@ section {
         box-shadow: 0 10px 30px var(--shadow);
         transform: translateX(-100%);
         transition: var(--transition);
+        z-index: 1001;
     }
 
     .nav-menu.active {
