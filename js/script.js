@@ -29,8 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const link = dropdown.querySelector('a');
         link.addEventListener('click', function(e) {
             if (window.innerWidth <= 968) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
+                // Allow navigation for real section links
+                if (this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
             }
         });
     });
