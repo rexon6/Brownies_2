@@ -25,23 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== MOBILE SECTION VISIBILITY ==========
-    // Hide all sections except home on mobile on initial load
+    // Hide all sections except home and updates (promo) on mobile on initial load
     function initMobileSectionVisibility() {
         if (window.innerWidth <= 968) {
             setTimeout(() => {
                 const homeSection = document.getElementById('home');
+                const updatesSection = document.getElementById('updates');
                 const allSections = document.querySelectorAll('section');
 
                 allSections.forEach(section => {
-                    if (section.id && section.id !== 'home') {
+                    if (section.id && section.id !== 'home' && section.id !== 'updates') {
                         section.classList.add('section-hidden');
+                    } else if (section.id === 'home' || section.id === 'updates') {
+                        section.classList.remove('section-hidden');
                     }
                 });
-
-                // Ensure home is visible
-                if (homeSection) {
-                    homeSection.classList.remove('section-hidden');
-                }
             }, 100);
         }
     }
@@ -51,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle section visibility when nav link is clicked
     const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default link behavior
+
             if (window.innerWidth <= 968) {
                 const href = this.getAttribute('href');
                 if (href && href.startsWith('#')) {
@@ -61,8 +61,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     allSections.forEach(section => {
                         if (section.id === targetId && targetSection) {
+                            // Show target and always keep home+updates visible
                             section.classList.remove('section-hidden');
-                        } else if (section.id) {
+                        } else if (section.id && section.id !== 'home' && section.id !== 'updates') {
+                            // Hide all other sections except home and updates
                             section.classList.add('section-hidden');
                         }
                     });
@@ -71,6 +73,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         window.scrollTo(0, 0);
                     }, 50);
+                }
+            } else {
+                // Desktop: Do smooth scrolling
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        // Close mobile menu if open and reset hamburger icon
+                        navMenu.classList.remove('active');
+                        if (mobileToggle) {
+                            const spans = mobileToggle.querySelectorAll('span');
+                            spans[0].style.transform = '';
+                            spans[1].style.opacity = '1';
+                            spans[2].style.transform = '';
+                        }
+
+                        // Smooth scroll to target
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active nav link
+                        document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
+                        this.classList.add('active');
+                    }
                 }
             }
         });
@@ -123,10 +155,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ========== SMOOTH SCROLLING ==========
-    const allNavLinks = document.querySelectorAll('a[href^="#"]');
+    // ========== SMOOTH SCROLLING FOR OTHER LINKS ==========
+    // Handle other links (outside nav menu) that point to sections
+    const otherLinks = document.querySelectorAll('a[href^="#"]:not(.nav-menu a)');
 
-    allNavLinks.forEach(link => {
+    otherLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
@@ -150,9 +183,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     spans[2].style.transform = '';
                 }
 
-                // Only do smooth scroll on desktop, mobile sections are already visible
-                if (window.innerWidth > 968) {
-                    // Smooth scroll to target
+                // Handle mobile section visibility
+                if (window.innerWidth <= 968) {
+                    const targetId = href.substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    const allSections = document.querySelectorAll('section');
+
+                    allSections.forEach(section => {
+                        if (section.id === targetId && targetSection) {
+                            section.classList.remove('section-hidden');
+                        } else if (section.id && section.id !== 'home' && section.id !== 'updates') {
+                            section.classList.add('section-hidden');
+                        }
+                    });
+
+                    // Scroll to top of page after section change on mobile
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                    }, 50);
+                } else {
+                    // Desktop: do smooth scroll
                     const headerOffset = 80;
                     const elementPosition = target.getBoundingClientRect().top;
                     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -165,7 +215,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Update active nav link
                 document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
+                if (this.closest('.nav-menu')) {
+                    this.classList.add('active');
+                }
             }
         });
     });
