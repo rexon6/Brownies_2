@@ -54,21 +54,27 @@ document.addEventListener('DOMContentLoaded', function() {
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            
+
             // Skip if href is just "#"
             if (href === '#') {
                 e.preventDefault();
                 return;
             }
-            
+
             const target = document.querySelector(href);
-            
+
             if (target) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
+
+                // Close mobile menu if open and reset hamburger icon
                 navMenu.classList.remove('active');
-                
+                if (mobileToggle) {
+                    const spans = mobileToggle.querySelectorAll('span');
+                    spans[0].style.transform = '';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = '';
+                }
+
                 // Smooth scroll to target
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
@@ -90,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let lastScroll = 0;
     const navbar = document.querySelector('.navbar');
 
-    window.addEventListener('scroll', function() {
+    // Debounced scroll handler for better mobile performance
+    const handleScroll = debounce(function() {
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 100) {
@@ -103,7 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
         updateActiveNavLink();
 
         lastScroll = currentScroll;
-    });
+    }, 10);
+
+    window.addEventListener('scroll', handleScroll);
 
     // Update active navigation link based on scroll position
     function updateActiveNavLink() {
