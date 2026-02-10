@@ -24,24 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Handle floating menu toggle button (for mobile scrolling)
-    const floatingMenuToggle = document.getElementById('floatingMenuToggle');
-    if (floatingMenuToggle) {
-        floatingMenuToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            navMenu.classList.toggle('active');
-
-            // Update floating button icon state
-            if (navMenu.classList.contains('active')) {
-                this.innerHTML = '<i class="fas fa-times"></i>';
-                this.classList.add('active');
-            } else {
-                this.innerHTML = '<i class="fas fa-bars"></i>';
-                this.classList.remove('active');
-            }
-        });
-    }
-
     // Handle dropdown clicks on mobile
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('a');
@@ -78,18 +60,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
-        if (!e.target.closest('.navbar') && !e.target.closest('.floating-menu-toggle')) {
+        if (!e.target.closest('.navbar')) {
             navMenu.classList.remove('active');
             if (mobileToggle) {
                 const spans = mobileToggle.querySelectorAll('span');
                 spans[0].style.transform = '';
                 spans[1].style.opacity = '1';
                 spans[2].style.transform = '';
-            }
-            // Reset floating button icon
-            if (floatingMenuToggle) {
-                floatingMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                floatingMenuToggle.classList.remove('active');
             }
         }
     });
@@ -119,11 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     spans[0].style.transform = '';
                     spans[1].style.opacity = '1';
                     spans[2].style.transform = '';
-                }
-                // Reset floating button icon
-                if (floatingMenuToggle) {
-                    floatingMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    floatingMenuToggle.classList.remove('active');
                 }
 
                 // Smooth scroll to target
