@@ -370,7 +370,7 @@ ul {
 
 .top-bar-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
@@ -1872,7 +1872,8 @@ section {
     }
 
     .top-bar-content {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: flex-start;
         gap: 10px;
         font-size: 12px;
     }
