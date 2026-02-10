@@ -157,9 +157,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ========== SMOOTH SCROLLING FOR OTHER LINKS ==========
     // Handle other links (outside nav menu) that point to sections
-    const otherLinks = document.querySelectorAll('a[href^="#"]:not(.nav-menu a)');
+    const otherLinks = document.querySelectorAll('a[href^="#"]');
 
     otherLinks.forEach(link => {
+        // Skip if link is already in nav menu (handled by navLinks)
+        if (link.closest('.nav-menu')) {
+            return;
+        }
+
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
