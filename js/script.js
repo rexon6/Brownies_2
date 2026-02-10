@@ -35,6 +35,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Handle cart link in mobile menu
+    const navCartLink = document.getElementById('navCart');
+    if (navCartLink) {
+        navCartLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Close mobile menu
+            navMenu.classList.remove('active');
+            if (mobileToggle) {
+                const spans = mobileToggle.querySelectorAll('span');
+                spans[0].style.transform = '';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = '';
+            }
+            // Open cart modal
+            const cartModal = document.getElementById('cartModal');
+            if (cartModal) {
+                cartModal.classList.add('active');
+                cartModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    }
+
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
         if (!e.target.closest('.navbar')) {
