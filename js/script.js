@@ -805,7 +805,7 @@ document.addEventListener('DOMContentLoaded', function() {
     scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
     scrollTopBtn.style.cssText = `
         position: fixed;
-        bottom: 180px;
+        bottom: 300px;
         right: 30px;
         width: 50px;
         height: 50px;
@@ -823,7 +823,24 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     
     document.body.appendChild(scrollTopBtn);
-    
+
+    // Adjust scroll to top button position on mobile
+    function adjustScrollTopBtnPosition() {
+        if (window.innerWidth <= 576) {
+            scrollTopBtn.style.bottom = '200px';
+            scrollTopBtn.style.right = '15px';
+        } else if (window.innerWidth <= 968) {
+            scrollTopBtn.style.bottom = '250px';
+            scrollTopBtn.style.right = '15px';
+        } else {
+            scrollTopBtn.style.bottom = '300px';
+            scrollTopBtn.style.right = '30px';
+        }
+    }
+
+    adjustScrollTopBtnPosition();
+    window.addEventListener('resize', adjustScrollTopBtnPosition);
+
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 300) {
             scrollTopBtn.style.display = 'flex';
