@@ -606,6 +606,11 @@ ul {
     transition: var(--transition);
 }
 
+/* Mobile Section Visibility Control */
+.section-hidden {
+    display: none !important;
+}
+
 /* Hero Slider */
 .hero-slider {
     position: relative;

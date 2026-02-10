@@ -24,6 +24,43 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========== MOBILE SECTION VISIBILITY ==========
+    // Hide all sections except home on mobile on initial load
+    function initMobileSectionVisibility() {
+        if (window.innerWidth <= 968) {
+            const allSections = document.querySelectorAll('section');
+            allSections.forEach(section => {
+                if (section.id !== 'home') {
+                    section.classList.add('section-hidden');
+                }
+            });
+        }
+    }
+
+    initMobileSectionVisibility();
+
+    // Handle section visibility when nav link is clicked
+    const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 968) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    const targetId = href.substring(1);
+                    const allSections = document.querySelectorAll('section');
+
+                    allSections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.classList.remove('section-hidden');
+                        } else {
+                            section.classList.add('section-hidden');
+                        }
+                    });
+                }
+            }
+        });
+    });
+
     // Handle dropdown clicks on mobile
     dropdowns.forEach(dropdown => {
         const link = dropdown.querySelector('a');
@@ -72,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========== SMOOTH SCROLLING ==========
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    
-    navLinks.forEach(link => {
+    const allNavLinks = document.querySelectorAll('a[href^="#"]');
+
+    allNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
 
@@ -98,21 +135,34 @@ document.addEventListener('DOMContentLoaded', function() {
                     spans[2].style.transform = '';
                 }
 
-                // Smooth scroll to target
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                // Only do smooth scroll on desktop, mobile sections are already visible
+                if (window.innerWidth > 968) {
+                    // Smooth scroll to target
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
 
                 // Update active nav link
                 document.querySelectorAll('.nav-menu a').forEach(a => a.classList.remove('active'));
                 this.classList.add('active');
             }
         });
+    });
+
+    // Handle window resize - restore all sections on desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 968) {
+            // Show all sections on desktop
+            document.querySelectorAll('section.section-hidden').forEach(section => {
+                section.classList.remove('section-hidden');
+            });
+        }
     });
 
     // ========== NAVBAR SCROLL EFFECT ==========
