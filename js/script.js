@@ -28,12 +28,21 @@ document.addEventListener('DOMContentLoaded', function() {
     // Hide all sections except home on mobile on initial load
     function initMobileSectionVisibility() {
         if (window.innerWidth <= 968) {
-            const allSections = document.querySelectorAll('section');
-            allSections.forEach(section => {
-                if (section.id !== 'home') {
-                    section.classList.add('section-hidden');
+            setTimeout(() => {
+                const homeSection = document.getElementById('home');
+                const allSections = document.querySelectorAll('section');
+
+                allSections.forEach(section => {
+                    if (section.id && section.id !== 'home') {
+                        section.classList.add('section-hidden');
+                    }
+                });
+
+                // Ensure home is visible
+                if (homeSection) {
+                    homeSection.classList.remove('section-hidden');
                 }
-            });
+            }, 100);
         }
     }
 
@@ -45,17 +54,23 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             if (window.innerWidth <= 968) {
                 const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
+                if (href && href.startsWith('#')) {
                     const targetId = href.substring(1);
+                    const targetSection = document.getElementById(targetId);
                     const allSections = document.querySelectorAll('section');
 
                     allSections.forEach(section => {
-                        if (section.id === targetId) {
+                        if (section.id === targetId && targetSection) {
                             section.classList.remove('section-hidden');
-                        } else {
+                        } else if (section.id) {
                             section.classList.add('section-hidden');
                         }
                     });
+
+                    // Scroll to top of page after section change on mobile
+                    setTimeout(() => {
+                        window.scrollTo(0, 0);
+                    }, 50);
                 }
             }
         });
