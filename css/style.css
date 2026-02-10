@@ -586,6 +586,38 @@ ul {
     padding-left: 30px;
 }
 
+/* Floating Mobile Menu Toggle (Sticky) */
+.floating-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 180px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--secondary-brown) 0%, var(--primary-brown) 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(139, 69, 19, 0.3);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.floating-menu-toggle:hover {
+    transform: scale(1.15) rotate(-10deg);
+    box-shadow: 0 12px 30px rgba(139, 69, 19, 0.5);
+}
+
+.floating-menu-toggle i {
+    font-size: 24px;
+    transition: var(--transition);
+}
+
 /* Mobile Toggle */
 .mobile-toggle {
     display: none;
@@ -1530,6 +1562,10 @@ section {
         display: flex;
     }
 
+    .floating-menu-toggle {
+        display: flex;
+    }
+
     .nav-menu {
         position: fixed;
         top: 80px;
@@ -1705,7 +1741,7 @@ section {
         border-radius: 50%;
         padding: 0;
         justify-content: center;
-        bottom: 110px;
+        bottom: 170px;
     }
 
     .whatsapp-float span {
@@ -1717,7 +1753,7 @@ section {
     }
 
     .cart-float {
-        bottom: 40px;
+        bottom: 100px;
     }
 
     .notification {
@@ -1801,7 +1837,7 @@ section {
 
     /* Mobile optimizations for small screens */
     .whatsapp-float {
-        bottom: 95px;
+        bottom: 145px;
         right: 15px;
         width: 50px;
         height: 50px;
@@ -1812,13 +1848,21 @@ section {
     }
 
     .cart-float {
-        bottom: 30px;
+        bottom: 90px;
         right: 15px;
         width: 50px;
         height: 50px;
     }
 
     .cart-float i {
+        font-size: 20px;
+    }
+
+    .floating-menu-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 40px;
+        right: 15px;
         font-size: 20px;
     }
 
