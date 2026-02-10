@@ -69,9 +69,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     });
 
-                    // Scroll to top of page after section change on mobile
+                    // Don't scroll, just instantly show the section
+                    // Remove any scroll behavior to prevent movement
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    window.scrollTo(0, 0);
+                    // Restore smooth scroll behavior for future use
                     setTimeout(() => {
-                        window.scrollTo(0, 0);
+                        document.documentElement.style.scrollBehavior = 'smooth';
                     }, 50);
                 }
             } else {
@@ -202,9 +206,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     });
 
-                    // Scroll to top of page after section change on mobile
+                    // Don't scroll, just instantly show the section
+                    // Remove any scroll behavior to prevent movement
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    window.scrollTo(0, 0);
+                    // Restore smooth scroll behavior for future use
                     setTimeout(() => {
-                        window.scrollTo(0, 0);
+                        document.documentElement.style.scrollBehavior = 'smooth';
                     }, 50);
                 } else {
                     // Desktop: do smooth scroll
